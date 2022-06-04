@@ -23,6 +23,7 @@ DROP TABLE IF EXISTS `seltzer` ;
 CREATE TABLE IF NOT EXISTS `seltzer` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `ounces` INT NOT NULL,
+  `date_time` DATETIME NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -42,7 +43,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `seltzerdb`;
-INSERT INTO `seltzer` (`id`, `ounces`) VALUES (1, 32);
+INSERT INTO `seltzer` (`id`, `ounces`, `date_time`) VALUES (1, 32, NULL);
 
 COMMIT;
 
