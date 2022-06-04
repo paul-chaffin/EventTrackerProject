@@ -21,4 +21,6 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Integer> {
 
 	@Query(value="SELECT * FROM coffee WHERE creamer = false AND sugar_tbsp = 0.0", nativeQuery=true)
 	public List<Coffee> queryByNoCreamerAndNoSugar();
+	
+	public List<Coffee> findByOriginLike(String pattern);
 }

@@ -13,5 +13,6 @@ public interface CoffeeService {
 	Coffee updateCoffee(Integer id, Coffee coffee);
 	List<Coffee> queryByCreamerAndSugar();
 	List<Coffee> queryByNoCreamerAndNoSugar();
+	public List<Coffee> findByOriginLike(String pattern);
 	
 }

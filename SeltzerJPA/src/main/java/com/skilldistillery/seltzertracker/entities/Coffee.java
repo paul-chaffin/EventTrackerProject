@@ -29,6 +29,8 @@ public class Coffee {
 	@CreationTimestamp
 	private LocalDateTime dateTime;
 	
+	private String origin;
+	
 	public Coffee() {}
 
 	public int getId() {
@@ -71,10 +73,21 @@ public class Coffee {
 		this.dateTime = dateTime;
 	}
 
+	
+	
+	public String getOrigin() {
+		return origin;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Coffee [id=" + id + ", ounces=" + ounces + ", creamer=" + creamer + ", sugarTbsp=" + sugarTbsp
-				+ ", dateTime=" + dateTime + "]";
+				+ ", dateTime=" + dateTime + ", origin=" + origin + "]";
 	}
 
 	@Override

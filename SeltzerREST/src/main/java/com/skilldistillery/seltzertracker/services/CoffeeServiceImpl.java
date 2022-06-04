@@ -58,6 +58,11 @@ public class CoffeeServiceImpl implements CoffeeService{
 		 
 	}
 
+	@Override
+	public List<Coffee> findByOriginLike(String pattern) {
+		return repo.findByOriginLike(pattern);
+	}
+
 	
 	
 }

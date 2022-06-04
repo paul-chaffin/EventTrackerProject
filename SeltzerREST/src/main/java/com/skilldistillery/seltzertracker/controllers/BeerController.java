@@ -83,4 +83,9 @@ public class BeerController {
 		return serv.findByStyleLike(pattern);
 	}
 	
+	@GetMapping("beers/abv/{low}/{high}")
+	public List<Beer> queryByAbvInRange(@PathVariable float low, @PathVariable float high){
+		return serv.queryByAbvInRange(low, high);
+	}
+	
 }

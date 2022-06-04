@@ -88,4 +88,9 @@ public class CoffeeController {
 		return serv.queryByNoCreamerAndNoSugar();
 	}
 	
+	@GetMapping("coffees/origin/{pattern}")
+	public List<Coffee> findByOriginLike(@PathVariable String pattern){
+		return serv.findByOriginLike(pattern);
+	}
+	
 }

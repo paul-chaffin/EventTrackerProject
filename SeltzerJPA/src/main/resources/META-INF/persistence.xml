@@ -7,6 +7,7 @@
 		<!-- entities -->
 		<class>com.skilldistillery.seltzertracker.entities.Seltzer</class>
 		<class>com.skilldistillery.seltzertracker.entities.Coffee</class>
+		<class>com.skilldistillery.seltzertracker.entities.Beer</class>
 	
 		
 		<!-- end entities (endtities?) -->
