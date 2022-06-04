@@ -23,4 +23,5 @@ public interface CoffeeRepository extends JpaRepository<Coffee, Integer> {
 	public List<Coffee> queryByNoCreamerAndNoSugar();
 	
 	public List<Coffee> findByOriginLike(String pattern);
+	
 }

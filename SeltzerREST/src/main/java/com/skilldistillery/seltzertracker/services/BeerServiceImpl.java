@@ -56,10 +56,21 @@ public class BeerServiceImpl implements BeerService{
 	public List<Beer> findByStyleLike(String pattern) {
 		return repo.findByStyleLike(pattern);
 	}
+	
+	// See note in controller
+	@Override
+	public List<Beer> showByStyleSearch(String keyword){
+		return repo.queryByStyle(keyword);
+	}
 
 	@Override
 	public List<Beer> queryByAbvInRange(float low, float high) {
 		return repo.queryByAbvInRange(low, high);
+	}
+
+	@Override
+	public List<Beer> findByBrewerLike(String pattern) {
+		return repo.findByBrewerLike(pattern);
 	}
 
 	

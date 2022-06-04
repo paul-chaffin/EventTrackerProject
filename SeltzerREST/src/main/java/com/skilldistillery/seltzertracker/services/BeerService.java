@@ -21,6 +21,11 @@ public interface BeerService {
 	
 	List<Beer> findByStyleLike(String pattern);
 	
+	// See note in controller
+	public List<Beer> showByStyleSearch(String keyword);
+	
+	List<Beer> findByBrewerLike(String pattern);
+	
 	List<Beer> queryByAbvInRange(float low, float high);
 	
 }
