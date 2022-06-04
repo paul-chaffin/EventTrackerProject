@@ -78,4 +78,9 @@ public class BeerController {
 		return serv.showBeerById(id);
 	}
 	
+	@GetMapping("beers/style/{pattern}")
+	public List<Beer> findByStyleLike(@PathVariable String pattern){
+		return serv.findByStyleLike(pattern);
+	}
+	
 }

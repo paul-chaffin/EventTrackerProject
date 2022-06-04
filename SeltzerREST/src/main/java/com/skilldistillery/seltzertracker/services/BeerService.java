@@ -11,6 +11,7 @@ public interface BeerService {
 	Beer createBeer(Beer newBeer);
 	boolean deleteBeer(Integer id);
 	Beer updateBeer(Integer id, Beer beer);
+	List<Beer> findByStyleLike(String pattern);
 
 	
 }

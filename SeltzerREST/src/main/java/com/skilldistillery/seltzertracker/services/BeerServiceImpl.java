@@ -52,6 +52,11 @@ public class BeerServiceImpl implements BeerService{
 		return inDb;
 	}
 
+	@Override
+	public List<Beer> findByStyleLike(String pattern) {
+		return repo.findByStyleLike(pattern);
+	}
+
 	
 	
 }

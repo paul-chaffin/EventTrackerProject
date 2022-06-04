@@ -14,6 +14,7 @@ public interface BeerRepository extends JpaRepository<Beer, Integer> {
 	// delete by last entered?
 	@SuppressWarnings("unchecked")
 	public Beer save(Beer newBeer);
+	public List<Beer> findByStyleLike(String pattern);
 	
 	
 }
