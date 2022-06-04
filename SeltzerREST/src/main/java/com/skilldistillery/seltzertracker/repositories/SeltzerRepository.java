@@ -14,5 +14,6 @@ public interface SeltzerRepository extends JpaRepository<Seltzer, Integer> {
 	// delete by last entered?
 	@SuppressWarnings("unchecked")
 	public Seltzer save(Seltzer newSeltzer);
+
 	
 }

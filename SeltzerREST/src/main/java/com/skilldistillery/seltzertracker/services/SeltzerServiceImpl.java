@@ -1,8 +1,7 @@
 package com.skilldistillery.seltzertracker.services;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +36,15 @@ public class SeltzerServiceImpl implements SeltzerService{
 		 repo.deleteById(id);
 		 boolean success = !repo.existsById(id);
 		return success;
+	}
+
+	@Override
+	public Seltzer updateSeltzer(Integer id, Seltzer seltzer) {
+		Seltzer inDb = repo.findById(id).get();
+		inDb.setDateTime(seltzer.getDateTime());
+		inDb.setOunces(seltzer.getOunces());
+		repo.save(inDb);
+		return inDb;
 	}
 
 	

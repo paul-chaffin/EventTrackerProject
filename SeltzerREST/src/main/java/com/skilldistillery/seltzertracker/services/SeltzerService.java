@@ -10,5 +10,6 @@ public interface SeltzerService {
 	Seltzer showSeltzerById(int id);
 	Seltzer createSeltzer(Seltzer newSeltzer);
 	boolean deleteSeltzer(Integer id);
+	Seltzer updateSeltzer(Integer id, Seltzer seltzer);
 	
 }
