@@ -6,13 +6,14 @@
 
 		<!-- entities -->
 		<class>com.skilldistillery.seltzertracker.entities.Seltzer</class>
+		<class>com.skilldistillery.seltzertracker.entities.Coffee</class>
 	
 		
 		<!-- end entities (endtities?) -->
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/seltzerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
+				value="jdbc:mysql://localhost:3306/seltzerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Eastern" />
 			<property name="javax.persistence.jdbc.user" value="seltzeruser" />
 			<property name="javax.persistence.jdbc.password"
 				value="seltzeruser" />

@@ -13,50 +13,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.seltzertracker.entities.Coffee;
 import com.skilldistillery.seltzertracker.entities.Seltzer;
-import com.skilldistillery.seltzertracker.services.SeltzerService;
+import com.skilldistillery.seltzertracker.services.CoffeeService;
 
 @RequestMapping("api")
 @RestController
-public class SeltzerController {
+public class CoffeeController {
 
 	@Autowired
-	private SeltzerService serv;
+	private CoffeeService serv;
 	
-	@GetMapping("seltzers")
-	public List<Seltzer> index(){
+	@GetMapping("coffees")
+	public List<Coffee> index(){
 		return serv.index();
 	}
 	
-	@GetMapping("seltzers/{id}")
-	public Seltzer getSeltzerById(@PathVariable int id, HttpServletResponse res) {
-		Seltzer s = new Seltzer();
+	@GetMapping("coffees/{id}")
+	public Coffee getCoffeeById(@PathVariable int id, HttpServletResponse res) {
+		Coffee c = new Coffee();
 		try {
-			s = serv.showSeltzerById(id);
+			c = serv.showCoffeeById(id);
 			res.setStatus(200);
 		} catch (Exception e) {
 			e.printStackTrace();
 			res.setStatus(404);
 		}
-		return s;
+		return c;
 	}
 	
-	@PostMapping("seltzers")
-	public Seltzer createNewSeltzer(@RequestBody Seltzer newSeltzer, HttpServletResponse res) {
-		Seltzer nS = new Seltzer();
+	@PostMapping("coffees")
+	public Coffee createNewCoffee(@RequestBody Coffee newCoffee, HttpServletResponse res) {
+		Coffee nC = new Coffee();
 		try {
-			nS = serv.createSeltzer(newSeltzer);
+			nC = serv.createCoffee(newCoffee);
 			res.setStatus(201);
 		} catch (Exception e) {
 			e.printStackTrace();
 			res.setStatus(415);
 		}
-		return nS;
+		return nC;
 	}
 	
-	@DeleteMapping("seltzers/{id}")
-	public void deleteSeltzer(@PathVariable Integer id, HttpServletResponse res) {
-		if (serv.deleteSeltzer(id)) {
+	@DeleteMapping("coffees/{id}")
+	public void deleteCoffee(@PathVariable Integer id, HttpServletResponse res) {
+		if (serv.deleteCoffee(id)) {
 			res.setStatus(200);
 		} else {
 			res.setStatus(404);

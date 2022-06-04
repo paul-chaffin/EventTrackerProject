@@ -27,6 +27,21 @@ CREATE TABLE IF NOT EXISTS `seltzer` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `coffee`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `coffee` ;
+
+CREATE TABLE IF NOT EXISTS `coffee` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ounces` INT NOT NULL,
+  `creamer` TINYINT NULL,
+  `sugar_tbsp` FLOAT NULL,
+  `date_time` DATETIME NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 SET SQL_MODE = '';
 DROP USER IF EXISTS seltzeruser;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -43,7 +58,18 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `seltzerdb`;
-INSERT INTO `seltzer` (`id`, `ounces`, `date_time`) VALUES (1, 32, NULL);
+INSERT INTO `seltzer` (`id`, `ounces`, `date_time`) VALUES (1, 32, '2022-06-04T09:17:25');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `coffee`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `seltzerdb`;
+INSERT INTO `coffee` (`id`, `ounces`, `creamer`, `sugar_tbsp`, `date_time`) VALUES (1, 6, 1, .5, '2022-06-04T07:45:25');
+INSERT INTO `coffee` (`id`, `ounces`, `creamer`, `sugar_tbsp`, `date_time`) VALUES (2, 8, 1, 1, '2022-06-04T08:33:25');
 
 COMMIT;
 
