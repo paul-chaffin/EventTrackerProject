@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,6 +64,18 @@ public class CoffeeController {
 			res.setStatus(404);
 		}
 		System.out.println("Deleted!");
+	}
+	
+	@PutMapping("coffees/{id}")
+	public Coffee updateCoffee(@PathVariable Integer id, @RequestBody Coffee coffee, HttpServletResponse res) {
+		try {
+			serv.updateCoffee(id, coffee);
+			res.setStatus(200);
+		} catch (Exception e) {
+			e.printStackTrace();
+			res.setStatus(404);
+		}
+		return serv.showCoffeeById(id);
 	}
 	
 }

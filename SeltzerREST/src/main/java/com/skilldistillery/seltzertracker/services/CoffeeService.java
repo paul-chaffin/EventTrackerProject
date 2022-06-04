@@ -10,5 +10,6 @@ public interface CoffeeService {
 	Coffee showCoffeeById(int id);
 	Coffee createCoffee(Coffee newCoffee);
 	boolean deleteCoffee(Integer id);
+	Coffee updateCoffee(Integer id, Coffee coffee);
 	
 }
