@@ -11,5 +11,7 @@ public interface CoffeeService {
 	Coffee createCoffee(Coffee newCoffee);
 	boolean deleteCoffee(Integer id);
 	Coffee updateCoffee(Integer id, Coffee coffee);
+	List<Coffee> queryByCreamerAndSugar();
+	List<Coffee> queryByNoCreamerAndNoSugar();
 	
 }

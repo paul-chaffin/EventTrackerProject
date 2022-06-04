@@ -47,6 +47,17 @@ public class CoffeeServiceImpl implements CoffeeService{
 		return inDb;
 	}
 
+	@Override
+	public List<Coffee> queryByCreamerAndSugar() {
+		return repo.queryByCreamerAndSugar();
+	}
+
+	@Override
+	public List<Coffee> queryByNoCreamerAndNoSugar() {
+		return repo.queryByNoCreamerAndNoSugar();
+		 
+	}
+
 	
 	
 }

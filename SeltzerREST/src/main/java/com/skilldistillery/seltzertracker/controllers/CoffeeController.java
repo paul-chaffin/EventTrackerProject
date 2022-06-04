@@ -78,4 +78,14 @@ public class CoffeeController {
 		return serv.showCoffeeById(id);
 	}
 	
+	@GetMapping("coffees/cream_sugar")
+	public List<Coffee> getCoffeesWithCreamSugar(){
+		return serv.queryByCreamerAndSugar();
+	}
+	
+	@GetMapping("coffees/black")
+	public List<Coffee> getCoffeesBlack(){
+		return serv.queryByNoCreamerAndNoSugar();
+	}
+	
 }
