@@ -7,18 +7,23 @@ This program allows you to track consumption of three types of beverages, includ
 You will need an API platform to interact with this program. All routes begin with the prefix ```localhost:8083/```
 
 Routes:
-* Beer
-  * ```GET api/beers``` returns a list of all beer entries
-  * ```GET api/beers/{id}``` returns a single beer entry with given ID
-  *  ```GET api/beers/style/{pattern}``` returns a list of beer entries with styles that match the given pattern
-  *  ```POST api/beers``` creates a new beer entry
-  *  ```PUT api/beers/{id}``` updates beer entry with given ID
-  *  ```DELETE api/beers/{id}``` deletes beer entry with given ID
+| Return Type     | Route                  | Functionality                     |
+|-----------------|------------------------|-----------------------------------|
+| `List<Beer>`      | `GET api/beers`        | returns a list of all beer entries|
+| `Beer`          | `GET api/beers/{id}`   | returns single beer entry with given ID|
+| `Beer`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|
+| `Beer`          | `POST api/beers`       | creates a new beer entry          |
+| `Beer`          | `PUT api/beers/{id}`   | updates beer entry with given ID  |
+| `void ``        | `DELETE api/beers/{id}`| deletes beer entry with given ID  |
+| `List<Coffee>`` | `GET api/coffees`      | returns a list of all coffee entries|
+| `Coffee`        | `GET api/coffees/{id}` | returns a single coffee entry with the given ID|
+| `Coffee`        | `GET api/coffees/cream_sugar` | returns a list of all coffee entries that include cream and sugar|
+| `Coffee`        | `GET api/black` | returns a list of all coffee entries with no cream and no sugar|
 
-* Coffee
-  * ```GET api/coffees``` returns a list of all coffee entries
-  * ```GET api/coffees/{id}``` returns a single coffee entry with the given ID
-  * ```GET api/coffees/cream_sugar``` returns a list of all coffee entries that include cream and cream_sugar
+
+
+  * ```` returns a single coffee entry with the given ID
+  * ```GET api/coffees/cream_sugar```
   * ```GET api/black``` returns a list of all coffee entries with no cream and no sugar
   * ```GET api/coffees``` returns a list of all coffee entries
   * ```GET api/coffees/origin/{pattern}``` returns a list of all coffee entries with origins matching the given pattern
