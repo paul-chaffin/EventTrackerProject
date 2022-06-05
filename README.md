@@ -44,3 +44,4 @@ Routes:
 ### Lessons Learned
 * Adding more entities/inserts as you go is not efficient. Which is a bummer when ideas come to you as you go.
 * .get() is your best friend when you need an object but are given an Optional
+* JUnit tests execute alphabetically...or in descending order of the length of the test name...or in any order they want.
