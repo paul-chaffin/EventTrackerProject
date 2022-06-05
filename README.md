@@ -1,4 +1,4 @@
-## EventTrackerProject
+## Beverage Tracker
 
 ### Description
 This program allows you to track consumption of three types of beverages, including properties unique to each type of beverage.
