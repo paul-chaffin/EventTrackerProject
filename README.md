@@ -10,8 +10,10 @@ Routes:
 | Return Type     | Route                  | Functionality                     |
 |-----------------|------------------------|-----------------------------------|
 | `List<Beer>`      | `GET api/beers`        | returns a list of all beer entries|
+| `List<Beer>`      | `GET api/beers/abv/{low}/{high}`        | returns a list of all beer entries with an ABV in the given range|
+| `List<Beer>`      | `GET api/beers/brewer/{pattern}`        | returns a list of all beer entries whose brewer matches the given pattern|
 | `Beer`          | `GET api/beers/{id}`   | returns single beer entry with given ID|
-| `Beer`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|
+| `List<Beer>`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|
 | `Beer`          | `POST api/beers`       | creates a new beer entry          |
 | `Beer`          | `PUT api/beers/{id}`   | updates beer entry with given ID  |
 | `void `        | `DELETE api/beers/{id}`| deletes beer entry with given ID  |
