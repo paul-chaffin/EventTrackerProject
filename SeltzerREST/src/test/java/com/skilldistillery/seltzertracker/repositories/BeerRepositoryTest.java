@@ -49,12 +49,19 @@ class BeerRepositoryTest {
 	void test_queryByAbvInRange() {
 		List<Beer> beers = repo.queryByAbvInRange(4.5f, 8.0f);
 		assertNotNull(beers);
-		assertEquals(4, beers.size());
+		assertEquals(4, beers.size()); // May throw a false
 	}
 	
 	
-
+	// RUN LAST TO AVOID FALSE FAILURES
+//	@Test
+//	void test_deleteById(){
+//		repo.deleteById(1);
+//		assertEquals(null, repo.findById(1));
+//	}
 	
+
+	// Not working, see note in controller
 //	@Test
 //	void test_queryByStyle() {
 //		List<Beer> beers = repo.queryByStyle("Lag");
@@ -67,14 +74,6 @@ class BeerRepositoryTest {
 	
 	
 	
-	@Test
-	void_test_deleteById(){
-		
-	}
-	
-	@Test
-	void_test_save(){
-		
-	}
+
 
 }
