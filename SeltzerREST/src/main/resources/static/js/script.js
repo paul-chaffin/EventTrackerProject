@@ -150,8 +150,28 @@ function displayBeerList(list) {
 					loadBeerList();
 				}, 50);
 			});//updateBtn.addEventListener close
-			deleteBtn.addEventListener('click', function(e){
-				
+			deleteBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				console.log(beer.id)
+				let xhr = new XMLHttpRequest();
+				xhr.open('DELETE', 'api/beers/' + beer.id);
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200 || xhr.status === 201) {
+							console.log('success')
+
+						} else {
+							alert("DELETE request failed.");
+							console.error(xhr.status + ': ' + xhr.responseText);
+							console.log(beer.id)
+						}
+					}
+				};
+			xhr.send();
+			setTimeout(function() {
+
+				loadBeerList();
+			}, 50);//onready close
 			});//deleteBtn.addEventListener close
 			updateForm.appendChild(updateBtn)
 			updateForm.appendChild(deleteBtn)
