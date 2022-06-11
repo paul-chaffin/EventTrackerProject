@@ -8,9 +8,10 @@ function init() {
 	//loadSeltzerList();
 	//loadCoffeeList();
 	loadBeerList();
+
 	beerForm.addBeer.addEventListener('click', function(e) {
 		e.preventDefault();
-		console.log("beer button WORKING")
+		//console.log("beer button WORKING")
 		let bName = beerForm.bName.value
 		let bBrewer = beerForm.bBrewer.value
 		let bStyle = beerForm.bStyle.value
@@ -21,10 +22,11 @@ function init() {
 		let beer = { name: bName, brewer: bBrewer, style: bStyle, styleTwo: bDetail, origin: bOrigin, abv: bAbv, purveyor: bPurveyor }
 		addBeer(beer);
 	});
-}
+
+}//init() closing bracket
 
 function addBeer(beer) {
-	console.log(beer);
+	//console.log(beer);
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST', 'api/beers/');
 	xhr.setRequestHeader("Content-type", "application/json"); // Specify JSON request body
@@ -48,12 +50,12 @@ function loadBeerList() {
 
 	xhr.open('GET', 'api/beers/')
 	xhr.onreadystatechange = function() {
-		console.log('in xhr.onreadystatechange')
+		//console.log('in xhr.onreadystatechange')
 		if (xhr.readyState === 4) {
-			console.log('readyState is 4')
+			//console.log('readyState is 4')
 			if (xhr.status === 200) {
 				let list = JSON.parse(xhr.responseText);
-				console.log(list);
+				//console.log(list);
 				displayBeerList(list);
 			}
 		} else {
@@ -68,7 +70,7 @@ function displayBeerList(list) {
 	let beerTBody = document.getElementById('beerTBody');
 	beerTBody.textContent = ""
 	for (let b of list) {
-		console.log(b)
+		//console.log(b)
 		let newTr = document.createElement('tr');
 		let nameTd = document.createElement('td');
 		let brewerTd = document.createElement('td');
@@ -99,7 +101,7 @@ function displayBeerList(list) {
 
 		newTr.addEventListener('click', function(e) {
 			e.preventDefault();
-			
+			updateForm.textContent = ""
 			for (let i in beer) {
 				let newInput = document.createElement("input")
 				newInput.type = "text"
@@ -107,10 +109,19 @@ function displayBeerList(list) {
 				newInput.value = beer[i]
 				updateForm.appendChild(newInput)
 			}
-						
-	});
+			let updateBtn = document.createElement("button")
+			let deleteBtn = document.createElement("button")
+			updateBtn.textContent = "update"
+			updateBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				alert("working");
+			});//updateBtn.addEventListener close
+			deleteBtn.textContent = "delete"
+			updateForm.appendChild(updateBtn)
+			updateForm.appendChild(deleteBtn)
+		});//newTr.addEventListener close
 
-};
+	};
 }
 
 
