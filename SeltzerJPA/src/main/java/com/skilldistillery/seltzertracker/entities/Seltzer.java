@@ -1,6 +1,7 @@
 package com.skilldistillery.seltzertracker.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -43,6 +44,7 @@ public class Seltzer {
 	}
 
 	public LocalDateTime getDateTime() {
+		
 		return dateTime;
 	}
 
