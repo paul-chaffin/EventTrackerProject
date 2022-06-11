@@ -2,7 +2,7 @@ window.addEventListener('load', function(e) {
 	console.log('script.js loaded');
 	init();
 });
-
+var totalOz
 function init() {
 	console.log('In init()');
 	//loadSeltzerList();
@@ -47,15 +47,19 @@ function addBeer(beer) {
 
 function loadBeerList() {
 	let xhr = new XMLHttpRequest();
-
+	totalOz = 0
+	
 	xhr.open('GET', 'api/beers/')
 	xhr.onreadystatechange = function() {
-		//console.log('in xhr.onreadystatechange')
+		console.log('in xhr.onreadystatechange')
 		if (xhr.readyState === 4) {
-			//console.log('readyState is 4')
+			console.log('readyState is 4')
 			if (xhr.status === 200) {
 				let list = JSON.parse(xhr.responseText);
-				//console.log(list);
+				console.log(list);
+				for (let b of list){
+					totalOz += 12
+				}
 				displayBeerList(list);
 			}
 		} else {
@@ -98,6 +102,8 @@ function displayBeerList(list) {
 		//newTr.appendChild(dtTd);
 		let beer = { id: b.id, name: b.name, brewer: b.brewer, style: b.style, styleTwo: b.styleTwo, origin: b.origin, abv: b.abv, purveyor: b.purveyor }
 		beerTBody.appendChild(newTr);
+		let ozHeader = document.getElementById("totalOzH")
+		ozHeader.textContent = "total oz: " + totalOz
 
 		newTr.addEventListener('click', function(e) {
 			e.preventDefault();
