@@ -18,12 +18,12 @@ function init() {
 		let bAbv = beerForm.bAbv.value
 		let bOrigin = beerForm.bOrigin.value
 		let bPurveyor = beerForm.bPurveyor.value
-		let beer = { name: bName, brewer: bBrewer, style: bStyle, styleTwo: bDetail, origin: bOrigin, abv: bAbv, purveyor: bPurveyor}
+		let beer = { name: bName, brewer: bBrewer, style: bStyle, styleTwo: bDetail, origin: bOrigin, abv: bAbv, purveyor: bPurveyor }
 		addBeer(beer);
 	});
 }
 
-function addBeer(beer){
+function addBeer(beer) {
 	console.log(beer);
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST', 'api/beers/');
@@ -33,7 +33,7 @@ function addBeer(beer){
 			if (xhr.status === 200 || xhr.status === 201) {
 				loadBeerList();
 
-			} else  {
+			} else {
 				alert("POST request failed.");
 				console.error(xhr.status + ': ' + xhr.responseText);
 			}
@@ -87,19 +87,30 @@ function displayBeerList(list) {
 		purveyorTd.textContent = b.purveyor;
 		dtTd.textContent = b.dateTime;
 		newTr.appendChild(nameTd);
+		newTr.appendChild(brewerTd);
 		newTr.appendChild(styleTd);
 		newTr.appendChild(detailTd);
 		newTr.appendChild(abvTd);
 		newTr.appendChild(originTd);
 		newTr.appendChild(purveyorTd);
-		newTr.appendChild(dtTd);
-		newTr.addEventListener('click', updateBeer)
+		//newTr.appendChild(dtTd);
+		let beer = { name: b.name, brewer: b.brewer, style: b.style, styleTwo: b.styleTwo, origin: b.origin, abv: b.abv, purveyor: b.purveyor }
 		beerTBody.appendChild(newTr);
-	}
+
+		newTr.addEventListener('click', function(e) {
+			e.preventDefault();
+			
+			for (let i in beer) {
+				let newInput = document.createElement("input")
+				newInput.type = "text"
+				newInput.name = i
+				newInput.value = beer[i]
+				updateForm.appendChild(newInput)
+			}
+						
+	});
 
 };
-
-function updateBeer(){
-	
 }
+
 
