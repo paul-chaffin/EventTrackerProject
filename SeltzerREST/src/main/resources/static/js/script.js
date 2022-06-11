@@ -96,27 +96,63 @@ function displayBeerList(list) {
 		newTr.appendChild(originTd);
 		newTr.appendChild(purveyorTd);
 		//newTr.appendChild(dtTd);
-		let beer = { name: b.name, brewer: b.brewer, style: b.style, styleTwo: b.styleTwo, origin: b.origin, abv: b.abv, purveyor: b.purveyor }
+		let beer = { id: b.id, name: b.name, brewer: b.brewer, style: b.style, styleTwo: b.styleTwo, origin: b.origin, abv: b.abv, purveyor: b.purveyor }
 		beerTBody.appendChild(newTr);
 
 		newTr.addEventListener('click', function(e) {
 			e.preventDefault();
 			updateForm.textContent = ""
 			for (let i in beer) {
-				let newInput = document.createElement("input")
-				newInput.type = "text"
-				newInput.name = i
-				newInput.value = beer[i]
-				updateForm.appendChild(newInput)
+				if (i === 'id') {
+					continue
+				} else {
+					let newInput = document.createElement("input")
+					newInput.type = "text"
+					newInput.name = i
+					newInput.value = beer[i]
+					updateForm.appendChild(newInput)
+				}
 			}
+
 			let updateBtn = document.createElement("button")
 			let deleteBtn = document.createElement("button")
 			updateBtn.textContent = "update"
+			deleteBtn.textContent = "delete"
 			updateBtn.addEventListener('click', function(e) {
 				e.preventDefault();
-				alert("working");
+				console.log(beer.id)
+				beer.abv = updateForm.abv.value
+				beer.brewer = updateForm.brewer.value
+				beer.name = updateForm.name.value
+				beer.origin = updateForm.origin.value
+				beer.purveyor = updateForm.purveyor.value
+				beer.style = updateForm.style.value
+				beer.styleTwo = updateForm.styleTwo.value
+				let xhr = new XMLHttpRequest();
+				xhr.open('PUT', 'api/beers/' + beer.id);
+				xhr.setRequestHeader("Content-type", "application/json");
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200 || xhr.status === 201) {
+							console.log('success')
+
+						} else {
+							alert("PUT request failed.");
+							console.error(xhr.status + ': ' + xhr.responseText);
+							console.log(beer.id)
+						}
+					}
+				};//onreadystatechange close
+				let beerJson = JSON.stringify(beer);
+				xhr.send(beerJson);
+				setTimeout(function() {
+
+					loadBeerList();
+				}, 50);
 			});//updateBtn.addEventListener close
-			deleteBtn.textContent = "delete"
+			deleteBtn.addEventListener('click', function(e){
+				
+			});//deleteBtn.addEventListener close
 			updateForm.appendChild(updateBtn)
 			updateForm.appendChild(deleteBtn)
 		});//newTr.addEventListener close
