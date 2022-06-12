@@ -9,6 +9,7 @@
   </head>
   <body>
     <h1>thirst.</h1>
+    <hr>
    <!--   <div class="container">
   <div class="row">
     <div class="col-sm">
@@ -77,8 +78,14 @@
     </div>
   </div>
 </div><br>
+<hr>
 <form id="updateForm" align="center"></form><br>
-   <form name="beerForm" align="left">
+ <form id="abvSearchForm" align="center"><h5>search by abv between:</h5><br>
+   	<input type="number" name="abvLow" size="4"> and 
+   	 <input type="number" name="abvHigh" size="4">
+   	 <button name="abvSearchBtn">search</button>
+   </form><br><hr>
+   <form name="beerForm" align="center"><h5>add new beer entry</h5><br>
    <label for="bName">name</label>	<input type="text" name="bName"><br>
    	 <label for="bBrewer">brewer</label><input type="text" name="bBrewer"><br>
     <label for="bStyle">style</label>	<input type="text" name="bStyle"><br>
@@ -87,7 +94,8 @@
    <label for="bOrigin">origin</label> 	<input type="text" name="bOrigin"><br>
    <label for="bPurveyor">purveyor</label> 	<input type="text" name="bPurveyor"><br>
    <button name="addBeer">add</button>
-   </form> 
+   </form> <br>
+  
    
         
     

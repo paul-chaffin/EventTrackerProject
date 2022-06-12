@@ -32,7 +32,30 @@ function init() {
 			addBeer(beer);
 		}
 	});
+	//end addBeer form
+	// begin abvSearch form
+	abvSearchForm.abvSearchBtn.addEventListener('click', function(e) {
+		e.preventDefault();
+		let low = abvSearchForm.abvLow.value
+		let high = abvSearchForm.abvHigh.value
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', 'api/beers/abv/' + low + '/' + high + '/');
 
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200 || xhr.status === 201) {
+					let list = JSON.parse(xhr.responseText);
+					displayBeerList(list);
+				} else {
+					alert("GET request failed.");
+					console.error(xhr.status + ': ' + xhr.responseText);
+				}
+			}
+		};//end statechange
+		xhr.send();
+		
+	});
+	//end abvSearch Form
 }//init() closing bracket
 
 function addBeer(beer) {
