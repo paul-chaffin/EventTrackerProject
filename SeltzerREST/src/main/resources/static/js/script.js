@@ -3,6 +3,7 @@ window.addEventListener('load', function(e) {
 	init();
 });
 var totalOz
+var totalAlc
 function init() {
 	console.log('In init()');
 	//loadSeltzerList();
@@ -53,6 +54,7 @@ function addBeer(beer) {
 function loadBeerList() {
 	let xhr = new XMLHttpRequest();
 	totalOz = 0
+	totalAlc = 0
 
 	xhr.open('GET', 'api/beers/')
 	xhr.onreadystatechange = function() {
@@ -63,6 +65,8 @@ function loadBeerList() {
 				let list = JSON.parse(xhr.responseText);
 				console.log(list);
 				for (let b of list) {
+					let modAbv = (b.abv / 100) * 12
+					totalAlc += modAbv
 					totalOz += 12
 				}
 				displayBeerList(list);
@@ -108,7 +112,9 @@ function displayBeerList(list) {
 		let beer = { id: b.id, name: b.name, brewer: b.brewer, style: b.style, styleTwo: b.styleTwo, origin: b.origin, abv: b.abv, purveyor: b.purveyor }
 		beerTBody.appendChild(newTr);
 		let ozHeader = document.getElementById("totalOzH")
-		ozHeader.textContent = "total oz: " + totalOz
+		ozHeader.textContent = "total: " + totalOz + " fl. oz"
+		let alcHeader = document.getElementById("totalAlcH")
+		alcHeader.textContent = "total alcohol vol: " + totalAlc + " fl. oz"
 
 		newTr.addEventListener('click', function(e) {
 			e.preventDefault();
