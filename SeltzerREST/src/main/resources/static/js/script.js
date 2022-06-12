@@ -4,6 +4,10 @@ window.addEventListener('load', function(e) {
 });
 var totalOz
 var totalAlc
+const formatter = new Intl.NumberFormat('en-US', {
+	minimumFractionDigits: 1,
+	maximumFractionDigits: 1,
+});
 function init() {
 	console.log('In init()');
 	//loadSeltzerList();
@@ -114,7 +118,7 @@ function displayBeerList(list) {
 		let ozHeader = document.getElementById("totalOzH")
 		ozHeader.textContent = "total: " + totalOz + " fl. oz"
 		let alcHeader = document.getElementById("totalAlcH")
-		alcHeader.textContent = "total alcohol vol: " + totalAlc + " fl. oz"
+		alcHeader.textContent = "total alcohol vol: " + formatter.format(totalAlc) + " fl. oz"
 
 		newTr.addEventListener('click', function(e) {
 			e.preventDefault();
