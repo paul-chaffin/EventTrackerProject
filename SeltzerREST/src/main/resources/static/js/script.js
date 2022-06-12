@@ -20,7 +20,12 @@ function init() {
 		let bOrigin = beerForm.bOrigin.value
 		let bPurveyor = beerForm.bPurveyor.value
 		let beer = { name: bName, brewer: bBrewer, style: bStyle, styleTwo: bDetail, origin: bOrigin, abv: bAbv, purveyor: bPurveyor }
-		addBeer(beer);
+		if (bAbv < 1.0 || bAbv > 14.0) {
+			console.log(bAbv)
+			alert('ABV must be a number between 1.0 and 14.0')
+		} else {
+			addBeer(beer);
+		}
 	});
 
 }//init() closing bracket
@@ -48,7 +53,7 @@ function addBeer(beer) {
 function loadBeerList() {
 	let xhr = new XMLHttpRequest();
 	totalOz = 0
-	
+
 	xhr.open('GET', 'api/beers/')
 	xhr.onreadystatechange = function() {
 		console.log('in xhr.onreadystatechange')
@@ -57,7 +62,7 @@ function loadBeerList() {
 			if (xhr.status === 200) {
 				let list = JSON.parse(xhr.responseText);
 				console.log(list);
-				for (let b of list){
+				for (let b of list) {
 					totalOz += 12
 				}
 				displayBeerList(list);
@@ -111,6 +116,13 @@ function displayBeerList(list) {
 			for (let i in beer) {
 				if (i === 'id') {
 					continue
+				} else if (i === 'abv') {
+
+					let newInput = document.createElement("input")
+					newInput.type = "number"
+					newInput.name = i
+					newInput.value = beer[i]
+					updateForm.appendChild(newInput)
 				} else {
 					let newInput = document.createElement("input")
 					newInput.type = "text"
@@ -134,27 +146,32 @@ function displayBeerList(list) {
 				beer.purveyor = updateForm.purveyor.value
 				beer.style = updateForm.style.value
 				beer.styleTwo = updateForm.styleTwo.value
-				let xhr = new XMLHttpRequest();
-				xhr.open('PUT', 'api/beers/' + beer.id);
-				xhr.setRequestHeader("Content-type", "application/json");
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4) {
-						if (xhr.status === 200 || xhr.status === 201) {
-							console.log('success')
+				if (beer.abv < 1.0 || beer.abv > 14.0) {
+					console.log(beer.abv)
+					alert('ABV must be a number between 1.0 and 14.0')
+				} else {
+					let xhr = new XMLHttpRequest();
+					xhr.open('PUT', 'api/beers/' + beer.id);
+					xhr.setRequestHeader("Content-type", "application/json");
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState === 4) {
+							if (xhr.status === 200 || xhr.status === 201) {
+								console.log('success')
 
-						} else {
-							alert("PUT request failed.");
-							console.error(xhr.status + ': ' + xhr.responseText);
-							console.log(beer.id)
+							} else {
+								alert("PUT request failed.");
+								console.error(xhr.status + ': ' + xhr.responseText);
+								console.log(beer.id)
+							}
 						}
-					}
-				};//onreadystatechange close
-				let beerJson = JSON.stringify(beer);
-				xhr.send(beerJson);
-				setTimeout(function() {
+					};//onreadystatechange close
+					let beerJson = JSON.stringify(beer);
+					xhr.send(beerJson);
+					setTimeout(function() {
 
-					loadBeerList();
-				}, 50);
+						loadBeerList();
+					}, 50);
+				}
 			});//updateBtn.addEventListener close
 			deleteBtn.addEventListener('click', function(e) {
 				e.preventDefault();
