@@ -6,6 +6,8 @@ This program allows you to track consumption of three types of beverages, includ
   * We recently implemented JavaScript. Support for seltzer and coffee, as well as some search features, is temporarily unavailable while we upgrade.
 
 ### How To Use This Program
+<em>Note: followed all instructions for deployment to AWS, but unable to load app</em>
+
 In a web browser, navigate to 35.170.103.58:8083/SeltzerREST
 
 On pageload, all available entries will be loaded for viewing. To update an entry, click its corresponding row. Search entries by alcohol content using the search form. New entries can be added using the form at the bottom of the page. To reset the view, refresh the page.
@@ -15,12 +17,13 @@ Routes:
 |-----------------|------------------------|-----------------------------------|
 | `List<Beer>`      | `GET api/beers`        | returns a list of all beer entries|
 | `List<Beer>`      | `GET api/beers/abv/{low}/{high}`        | returns a list of all beer entries with an ABV in the given range|
-<!--| `List<Beer>`      | `GET api/beers/brewer/{pattern}`        | returns a list of all beer entries whose brewer matches the given pattern|
-| `Beer`          | `GET api/beers/{id}`   | returns single beer entry with given ID|
-| `List<Beer>`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|-->
 | `Beer`          | `POST api/beers`       | creates a new beer entry          |
 | `Beer`          | `PUT api/beers/{id}`   | updates beer entry with given ID  |
 | `void `        | `DELETE api/beers/{id}`| deletes beer entry with given ID  |
+<!--| `List<Beer>`      | `GET api/beers/brewer/{pattern}`        | returns a list of all beer entries whose brewer matches the given pattern|
+| `Beer`          | `GET api/beers/{id}`   | returns single beer entry with given ID|
+| `List<Beer>`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|-->
+
 <!--| `List<Coffee>` | `GET api/coffees`      | returns a list of all coffee entries|
 | `Coffee`        | `GET api/coffees/{id}` | returns a single coffee entry with the given ID|
 | `List<Coffee>`        | `GET api/coffees/cream_sugar` | returns a list of all coffee entries that include cream and sugar|
