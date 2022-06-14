@@ -6,9 +6,8 @@ This program allows you to track consumption of three types of beverages, includ
   * We recently implemented JavaScript. Support for seltzer and coffee, as well as some search features, is temporarily unavailable while we upgrade.
 
 ### How To Use This Program
-<em>Note: followed all instructions for deployment to AWS, but unable to load app</em>
 
-In a web browser, navigate to 35.170.103.58:8083/SeltzerREST
+In a web browser, navigate to http://35.170.103.58:8080/SeltzerREST/
 
 On pageload, all available entries will be loaded for viewing. To update an entry, click its corresponding row. Search entries by alcohol content using the search form. New entries can be added using the form at the bottom of the page. To reset the view, refresh the page.
 
