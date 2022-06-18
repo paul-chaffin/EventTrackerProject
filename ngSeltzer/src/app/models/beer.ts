@@ -2,8 +2,9 @@ import { toJSDate } from "@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar";
 
 export class Beer {
 
-  id: number | null;
+  id: number;
   dateTime: string | null;
+  brewer: string | null;
   style: string | null;
   styleTwo: string | null;
   name: string | null;
@@ -12,8 +13,9 @@ export class Beer {
   purveyor: string | null;
 
   constructor(
-    id: number | null = 0,
+    id: number = 0,
     dateTime: string | null = '',
+    brewer: string | null = '',
     style: string | null = '',
     styleTwo: string | null = '',
     name: string | null = '',
@@ -23,6 +25,7 @@ export class Beer {
   ){
     this.id = id;
     this.dateTime = dateTime;
+    this.brewer = brewer;
     this.style = style;
     this.styleTwo = styleTwo;
     this.name = name;
