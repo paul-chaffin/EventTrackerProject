@@ -9,7 +9,7 @@ export class Beer {
   styleTwo: string | null;
   name: string | null;
   origin: string | null;
-  abv: number | null;
+  abv: number;
   purveyor: string | null;
 
   constructor(
@@ -20,7 +20,7 @@ export class Beer {
     styleTwo: string | null = '',
     name: string | null = '',
     origin: string | null = '',
-    abv: number | null = 0,
+    abv: number = 0,
     purveyor: string | null = '',
   ){
     this.id = id;

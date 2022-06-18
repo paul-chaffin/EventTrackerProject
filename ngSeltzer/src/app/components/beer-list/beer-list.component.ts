@@ -6,10 +6,9 @@ import { BeersService } from 'src/app/services/beers.service';
 @Component({
   selector: 'app-beer-list',
   templateUrl: './beer-list.component.html',
-  styleUrls: ['./beer-list.component.css']
+  styleUrls: ['./beer-list.component.css'],
 })
 export class BeerListComponent implements OnInit {
-
   beerList: Beer[] = [];
 
   selected: null | Beer = null;
@@ -24,7 +23,7 @@ export class BeerListComponent implements OnInit {
     private beerServ: BeersService,
     private currentRoute: ActivatedRoute,
     private router: Router
-    ) { }
+  ) {}
 
   ngOnInit(): void {
     let idStr = this.currentRoute.snapshot.paramMap.get('id');
@@ -54,8 +53,25 @@ export class BeerListComponent implements OnInit {
       error: (err) => {
         console.error('BeerListComponent.reload: error');
         console.error(err);
-      }
+      },
     });
+  }
+
+  getTotalOz(): number {
+    let totalOz = 0;
+    this.beerList.forEach((beer) => {
+      totalOz += 12;
+    });
+    return totalOz;
+  }
+
+  getTotalAbv(): number {
+    let totalAbv = 0;
+    this.beerList.forEach((beer)=> {
+      let bAbv = beer.abv;
+      totalAbv += (12 * (bAbv / 100));
+    })
+    return totalAbv;
   }
 
   addBeer(beer: Beer): void {
@@ -65,9 +81,7 @@ export class BeerListComponent implements OnInit {
         this.reload();
       },
       error: (nojoy) => {
-        console.error(
-          'BeerListHttpComponent.addBeer(): error creating beer:'
-        );
+        console.error('BeerListHttpComponent.addBeer(): error creating beer:');
         console.error(nojoy);
       },
     });
@@ -113,5 +127,4 @@ export class BeerListComponent implements OnInit {
       },
     });
   }
-
 }

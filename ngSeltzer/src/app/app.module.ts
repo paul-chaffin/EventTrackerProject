@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BeerListComponent } from './components/beer-list/beer-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { DecimalPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     HttpClientModule
   ],
   providers: [
-    BeersService
+    BeersService,
+    DecimalPipe
   ],
   bootstrap: [AppComponent]
 })
