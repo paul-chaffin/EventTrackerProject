@@ -27,6 +27,7 @@ export class BeerListComponent implements OnInit {
 
   ngOnInit(): void {
     let idStr = this.currentRoute.snapshot.paramMap.get('id');
+    let patternStr = this.currentRoute.snapshot.paramMap.get('pattern');
     if (!this.selected && idStr) {
       let idNum = Number.parseInt(idStr);
       if (!isNaN(idNum)) {
@@ -42,6 +43,16 @@ export class BeerListComponent implements OnInit {
         this.router.navigateByUrl('/invalidBeerId');
       }
     }
+    // if (!this.selected && patternStr){
+    //   this.beerServ.patternSearch(patternStr).subscribe({
+    //     next: (resultList)=> {
+    //       this.beerList = resultList;
+    //     },
+    //     error: (noResults) => {
+    //       this.router.navigateByUrl('/noMatches');
+    //     },
+    //   });
+    // }
     this.reload();
   }
 

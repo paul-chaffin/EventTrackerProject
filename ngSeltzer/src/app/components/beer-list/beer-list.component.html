@@ -1,8 +1,9 @@
 <h1>bevTrack</h1>
 <hr>
 <div *ngIf="!selected">
-  <h4><span class="badge bg-success">total fl. oz.: {{getTotalOz()}} oz</span></h4><br>
-  <h4><span class="badge bg-success">total alcohol: {{getTotalAbv() | number:'1.1-2'}} oz</span></h4>
+  <h4><span class="badge bg-success">total: {{getTotalOz()}} fl. oz</span></h4>
+  <h4><span class="badge bg-warning">total alcohol: {{getTotalAbv() | number:'1.1-2'}} oz</span></h4>
+
   <table class="table table-striped">
     <thead class="table-dark">
       <tr>

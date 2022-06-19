@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'beers', component: BeerListComponent},
   { path: 'beers/:id', component: BeerListComponent},
+  { path: 'beers/style/:pattern', component: BeerListComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

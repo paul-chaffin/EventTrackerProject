@@ -12,6 +12,7 @@ import { BeerListComponent } from './components/beer-list/beer-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { DecimalPipe } from '@angular/common';
+import { PatternPipe } from './pipes/pattern.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DecimalPipe } from '@angular/common';
     HomeComponent,
     BeerListComponent,
     NotFoundComponent,
-    NavigationComponent
+    NavigationComponent,
+    PatternPipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { DecimalPipe } from '@angular/common';
   ],
   providers: [
     BeersService,
-    DecimalPipe
+    DecimalPipe,
+    PatternPipe
   ],
   bootstrap: [AppComponent]
 })

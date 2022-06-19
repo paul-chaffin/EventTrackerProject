@@ -28,6 +28,19 @@ export class BeersService {
     );
   }
 
+  patternSearch(pattern: string): Observable<Beer[]> {
+    return this.http.get<Beer[]>(this.url + '/style/' + pattern).pipe(
+      catchError((err: any)=>{
+        console.log(err);
+        return throwError(
+          () => new Error(
+            'BeersService.patternSearch(): error retrieving Beer list: ' + err
+          )
+        )
+      })
+    )
+  }
+
   show(id: number): Observable<Beer> {
     return this.http.get<Beer>(this.url + '/' + id).pipe(
       catchError((err: any)=>{
