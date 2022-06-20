@@ -1,9 +1,20 @@
 <h1>bevTrack</h1>
-<hr>
+<hr />
 <div *ngIf="!selected">
-  <h4><span class="badge bg-success">total: {{getTotalOz()}} fl. oz</span></h4>
-  <h4><span class="badge bg-warning">total alcohol: {{getTotalAbv() | number:'1.1-2'}} oz</span></h4>
-
+  <h4>
+    <span class="badge bg-success">total: {{ getTotalOz() }} fl. oz</span>
+  </h4>
+  <h4>
+    <span class="badge bg-warning"
+      >total alcohol: {{ getTotalAbv() | number: "1.1-2" }} oz</span
+    >
+  </h4>
+  <h4>
+    filter style:
+    <!-- <form>
+      <input type="text" name="pattern"
+    </form> -->
+  </h4>
   <table class="table table-striped">
     <thead class="table-dark">
       <tr>
@@ -27,42 +38,46 @@
         <td>{{ b.origin }}</td>
         <td>{{ b.purveyor }}</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteBeer(b.id)">
-            🗑
-          </button>
+          <button class="btn btn-danger" (click)="deleteBeer(b.id)">🗑</button>
         </td>
       </tr>
     </tbody>
   </table>
-  <hr>
-  add new: <input type="checkbox" class="btn btn-success" name="showAddForm" [(ngModel)]="showAddForm" (change)="showAddForm">
+  <hr />
+  add new:
+  <input
+    type="checkbox"
+    class="btn btn-success"
+    name="showAddForm"
+    [(ngModel)]="showAddForm"
+    (change)="(showAddForm)"
+  />
   <form *ngIf="showAddForm">
-  <div class="column" align="left">
+    <div class="column" align="left">
+      <label for="name">name: </label>
+      <input type="text" name="name" [(ngModel)]="newBeer.name" /><br />
 
-    <label for="name">name: </label>
-    <input type="text" name="name" [(ngModel)]="newBeer.name" /><br>
+      <label for="brewer">brewer: </label>
+      <input type="text" name="brewer" [(ngModel)]="newBeer.brewer" /><br />
 
-    <label for="brewer">brewer: </label>
-    <input type="text" name="brewer" [(ngModel)]="newBeer.brewer" /><br>
+      <label for="style">style: </label>
+      <input type="text" name="style" [(ngModel)]="newBeer.style" /><br />
 
-    <label for="style">style: </label>
-    <input type="text" name="style" [(ngModel)]="newBeer.style" /><br>
+      <label for="detail">detail: </label>
+      <input type="text" name="detail" [(ngModel)]="newBeer.styleTwo" /><br />
 
-    <label for="detail">detail: </label>
-    <input type="text" name="detail" [(ngModel)]="newBeer.styleTwo" /><br>
+      <label for="abv">abv: </label>
+      <input type="number" name="abv" [(ngModel)]="newBeer.abv" /><br />
 
-    <label for="abv">abv: </label>
-    <input type="number" name="abv" [(ngModel)]="newBeer.abv" /><br>
+      <label for="origin">origin: </label>
+      <input type="text" name="origin" [(ngModel)]="newBeer.origin" /><br />
 
-    <label for="origin">origin: </label>
-    <input type="text" name="origin" [(ngModel)]="newBeer.origin" /><br>
+      <label for="purveyor">purveyor: </label>
+      <input type="text" name="purveyor" [(ngModel)]="newBeer.purveyor" /><br />
 
-    <label for="purveyor">purveyor: </label>
-    <input type="text" name="purveyor" [(ngModel)]="newBeer.purveyor" /><br>
-
-    <input type="submit" (click)="addBeer(newBeer)" />
-  </div>
-</form>
+      <input type="submit" (click)="addBeer(newBeer)" />
+    </div>
+  </form>
 </div>
 
 <div *ngIf="selected">
@@ -75,22 +90,30 @@
     <li>{{ selected?.origin }}</li>
     <li>{{ selected?.purveyor }}</li>
   </ul>
-  <button type="button" class="btn btn-success" (click)="setEditBeer(selected)">edit</button>
+  <button type="button" class="btn btn-success" (click)="setEditBeer(selected)">
+    edit
+  </button>
 
-  <button type="button" class="btn btn-primary" (click)="displayTable()">back</button>
+  <button type="button" class="btn btn-primary" (click)="displayTable()">
+    back
+  </button>
 </div>
 
 <div *ngIf="editBeer">
-  <hr>
+  <hr />
   <form>
-  name: <input type="text" name="name" [(ngModel)]="editBeer.name"><br>
-  brewer: <input type="text" name="description" [(ngModel)]="editBeer.brewer"><br>
-  style: <input type="text" name="style" [(ngModel)]="editBeer.style"><br>
-  detail: <input type="text" name="detail" [(ngModel)]="editBeer.styleTwo"><br>
-  abv: <input type="number" name="abv" [(ngModel)]="editBeer.abv"><br>
-  origin: <input type="text" name="origin" [(ngModel)]="editBeer.origin"><br>
-  purveyor: <input type="text" name="purveyor" [(ngModel)]="editBeer.purveyor"><br>
-  <button class="btn btn-success" (click)="updateBeer(editBeer)">save</button>
-  <button class="btn btn-danger" (click)="editBeer = null">discard</button>
-</form>
+    name: <input type="text" name="name" [(ngModel)]="editBeer.name" /><br />
+    brewer:
+    <input type="text" name="description" [(ngModel)]="editBeer.brewer" /><br />
+    style: <input type="text" name="style" [(ngModel)]="editBeer.style" /><br />
+    detail:
+    <input type="text" name="detail" [(ngModel)]="editBeer.styleTwo" /><br />
+    abv: <input type="number" name="abv" [(ngModel)]="editBeer.abv" /><br />
+    origin:
+    <input type="text" name="origin" [(ngModel)]="editBeer.origin" /><br />
+    purveyor:
+    <input type="text" name="purveyor" [(ngModel)]="editBeer.purveyor" /><br />
+    <button class="btn btn-success" (click)="updateBeer(editBeer)">save</button>
+    <button class="btn btn-danger" (click)="editBeer = null">discard</button>
+  </form>
 </div>

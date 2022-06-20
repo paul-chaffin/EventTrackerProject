@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Waddleya Have?</title>
+    <script type="text/javascript" src="js/script.js"></script>
+  </head>
+  <body>
+    <h1>thirst.</h1>
+    <hr>
+   <!--   <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <table style="padding: 5px">
+    	<thead>
+    		<tr>
+    			<th colspan="2"><h2>seltzer</h2></th>
+    		</tr>
+    		<tr>
+    			<td><strong>fl. oz.</strong></td>
+    			<td><strong>when</strong></td>
+    		</tr>
+    	</thead>
+   		<tbody id="seltzerTBody">
+    	
+    	</tbody>
+        </table>
+    </div>
+    <div class="col-sm">
+      <table style="padding: 5px">
+    	<thead>
+    		<tr>
+    			<th colspan="5"><h2>coffee</h2></th>
+    		</tr>
+    		<tr>
+    			<td><strong>origin</strong></td>
+    			<td><strong>creamer</strong></td>
+    			<td><strong>sugar</strong></td>
+    			<td><strong>fl. oz.</strong></td>
+    			<td><strong>when</strong></td>
+    		</tr>
+    	</thead>
+   		<tbody id="coffeeTBody">
+    	
+    	</tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+    <br>
+    -->
+    <div class="container" align="center">
+  <div class="row">
+    <div class="col-med">
+      <table style="padding: 15px">
+    	<thead>
+    		<tr>
+    			<th colspan="7"><h2>beer</h2></th>
+    		</tr>
+    		<tr>
+    			<td><strong>name</strong></td>
+    			<td><strong>brewer</strong></td>
+    			<td><strong>style</strong></td>
+    			<td><strong>detail</strong></td>
+    			<td><strong>abv</strong></td>
+    			<td><strong>origin</strong></td>
+    			<td><strong>purveyor</strong></td>
+    		</tr>
+    	</thead>
+   		<tbody id="beerTBody">
+    	
+    	</tbody>
+        </table><br>
+        <h2 id="totalOzH"></h2><br>
+        <h3 id="totalAlcH"></h3><br>
+    </div>
+  </div>
+</div><br>
+<hr>
+<form id="updateForm" align="center"></form><br>
+ <form id="abvSearchForm" align="center"><h5>search by abv between:</h5><br>
+   	<input type="number" name="abvLow" size="4"> and 
+   	 <input type="number" name="abvHigh" size="4">
+   	 <button name="abvSearchBtn">search</button>
+   </form><br><hr>
+   <form name="beerForm" align="center"><h5>add new beer entry</h5><br>
+   <label for="bName">name</label>	<input type="text" name="bName"><br>
+   	 <label for="bBrewer">brewer</label><input type="text" name="bBrewer"><br>
+    <label for="bStyle">style</label>	<input type="text" name="bStyle"><br>
+    <label for="bDetail">detail</label>	<input type="text" name="bDetail"><br>
+    <label for="bAbv">abv</label>	<input type="number" name="bAbv"><br>
+   <label for="bOrigin">origin</label> 	<input type="text" name="bOrigin"><br>
+   <label for="bPurveyor">purveyor</label> 	<input type="text" name="bPurveyor"><br>
+   <button name="addBeer">add</button>
+   </form> <br>
+  
+   
+        
+    
+  </body>
+</html>

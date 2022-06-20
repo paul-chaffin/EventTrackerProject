@@ -2,14 +2,12 @@
 
 ### Description
 This program allows you to track consumption of three types of beverages, including properties unique to each type of beverage.
-* Update June 2022
-  * We recently implemented JavaScript. Support for seltzer and coffee, as well as some search features, is temporarily unavailable while we upgrade.
 
 ### How To Use This Program
-<i>Note: attempted Angular deployment</i>
+
 In a web browser, navigate to http://35.170.103.58:8080/SeltzerREST/
 
-On pageload, all available entries will be loaded for viewing. To update an entry, click its corresponding row. Search entries by alcohol content using the search form. New entries can be added using the form at the bottom of the page. To reset the view, refresh the page.
+Click Beer List in the navigation to access the tracker. All available entries will be loaded for viewing. To view or update an entry, click its corresponding name. New entries can be added using the form at the bottom of the page (click the checkbox). To delete an entry, click its corresponding delete button.
 
 Routes:
 | Return Type     | Route                  | Functionality                     |
