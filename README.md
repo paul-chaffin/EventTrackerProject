@@ -6,7 +6,7 @@ This program allows you to track consumption of three types of beverages, includ
   * We recently implemented JavaScript. Support for seltzer and coffee, as well as some search features, is temporarily unavailable while we upgrade.
 
 ### How To Use This Program
-
+<i>Note: attempted Angular deployment</i>
 In a web browser, navigate to http://35.170.103.58:8080/SeltzerREST/
 
 On pageload, all available entries will be loaded for viewing. To update an entry, click its corresponding row. Search entries by alcohol content using the search form. New entries can be added using the form at the bottom of the page. To reset the view, refresh the page.
@@ -15,13 +15,13 @@ Routes:
 | Return Type     | Route                  | Functionality                     |
 |-----------------|------------------------|-----------------------------------|
 | `List<Beer>`      | `GET api/beers`        | returns a list of all beer entries|
-| `List<Beer>`      | `GET api/beers/abv/{low}/{high}`        | returns a list of all beer entries with an ABV in the given range|
+<!-- | `List<Beer>`      | `GET api/beers/abv/{low}/{high}`        | returns a list of all beer entries with an ABV in the given range| -->
 | `Beer`          | `POST api/beers`       | creates a new beer entry          |
 | `Beer`          | `PUT api/beers/{id}`   | updates beer entry with given ID  |
 | `void `        | `DELETE api/beers/{id}`| deletes beer entry with given ID  |
 <!--| `List<Beer>`      | `GET api/beers/brewer/{pattern}`        | returns a list of all beer entries whose brewer matches the given pattern|
 | `Beer`          | `GET api/beers/{id}`   | returns single beer entry with given ID|
-| `List<Beer>`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|-->
+-->| `List<Beer>`          | `GET api/beers/style/{pattern}`| returns a list of beer entries with styles that match the given pattern|
 
 <!--| `List<Coffee>` | `GET api/coffees`      | returns a list of all coffee entries|
 | `Coffee`        | `GET api/coffees/{id}` | returns a single coffee entry with the given ID|
@@ -48,6 +48,9 @@ Routes:
 * Gradle
 * JavaScript
 * AJAX
+* Angular
+* Pipes
+* Bootstrap
 
 ### Lessons Learned
 * Adding more entities/inserts as you go is not efficient. Which is a bummer when ideas come to you as you go.
@@ -55,3 +58,5 @@ Routes:
 * JUnit tests execute alphabetically...or in descending order of the length of the test name...or in any order they want.
 * Comment blocks for easy identification
 * Throw down your closing curly braces <i>before</i> you write any block code to avoid losing them
+* Understand the stack of Angular components using a mental model
+* If you don't understand the code you're writing, follow the patterns until you do

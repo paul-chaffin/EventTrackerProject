@@ -41,6 +41,8 @@ export class BeersService {
     )
   }
 
+  // showResults
+
   show(id: number): Observable<Beer> {
     return this.http.get<Beer>(this.url + '/' + id).pipe(
       catchError((err: any)=>{
